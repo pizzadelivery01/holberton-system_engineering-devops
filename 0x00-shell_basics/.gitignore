@@ -4,3 +4,9 @@
 **/\#*
 # Ignore main files
 **/*main.c
+# Ignore emacs autosave~ and #modified# files
+*~
+**/*~
+**/\#*
+# Ignore main files
+**/*main.c
