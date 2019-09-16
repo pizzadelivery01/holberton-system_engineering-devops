@@ -1,0 +1,1 @@
+his is a project about shell redirections and I/O commands
