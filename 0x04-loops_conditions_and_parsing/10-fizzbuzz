@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # fizzbuzz
+#shellcheck disable=SC2034
 for i in {1..100}; do 
     if ! ((i % 3)); then
         echo -n Fizz
@@ -8,7 +9,7 @@ for i in {1..100}; do
         echo -n Buzz
     fi
     if ((i % 3)) && ((i % 5)); then
-        echo -n FizzBuzz
+        echo -n $i
     fi
-    echo "$i"
+    echo
 done
