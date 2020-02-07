@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#prints ls in list just filesname
+#shellcheck disable=2034
+
+for each in *
+do
+    echo $each | cut -d "-" -f2
+done
