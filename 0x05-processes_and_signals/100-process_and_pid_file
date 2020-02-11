@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Creates the file /var/run/holbertonscript.pid containing its PID
 # and does not like to be ended
-
-sudo bash -c 'echo $$ >> /var/run/holbertonscript.pid'
+sudo touch /var/run/holbertonscript.pid
+sudo bash -c 'echo $$ > /var/run/holbertonscript.pid'
 while true
 do
     echo "To infinity and beyond"
