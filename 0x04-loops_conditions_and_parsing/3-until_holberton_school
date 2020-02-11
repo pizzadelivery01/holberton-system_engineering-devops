@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#prints 10 using until
+#shellcheck disable=SC2034
+
+i=10
+until [ $i -lt 1 ]; do
+      echo "Holberton School"
+      let i--
+done
