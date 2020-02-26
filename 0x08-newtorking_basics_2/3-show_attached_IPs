@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# displays all ips on maching active
+
+ifconfig | grep "inet addr" | cut -d ":" -f2 | cut -d " " -f1
