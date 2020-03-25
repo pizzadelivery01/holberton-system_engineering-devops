@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#installs nginx on remote server
+
+apt-get -y update
+apt-get -y install nginx
+echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /usr/share/nginx/html;
+    index  index.html index.htm;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    error_page 404 /404.html;
+    location /404 {
+      root   /usr/share/nginx/html;
+      internal;
+    }
+}" > /etc/nginx/sites-available/default
+service nginx start
