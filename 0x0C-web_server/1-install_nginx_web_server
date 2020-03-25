@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#installs nginx on remote server
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo chmod 777 /usr/share/nginx/html/index.html
+echo 'Holberton School' > /usr/share/nginx/html/index.html
+sudo service nginx start
