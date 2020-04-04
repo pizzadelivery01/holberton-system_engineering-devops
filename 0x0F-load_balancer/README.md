@@ -1,0 +1,1 @@
+this is a repo for a load balancing project for holberton school where two servers are managed
