@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#runs whoami as another user given
+
+su "$1" whoami
