@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 #setup and installs nginx on remote server
 # shellcheck disable=SC2154
 
