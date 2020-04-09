@@ -4,3 +4,15 @@
 
 print_subdomain()
 {
+    domain="$1"
+    subdomain="$2"
+    dig "$subdomain.$domain" | awk ' /ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", each, $4, $5}' each="$subdomain"
+}
+
+for each in "www" "lb-01" "web-01" "web-02"
+do
+    if [ -z "$2" ] || [ "$2" == "$subdomain" ];
+    then
+	print_subdomain "$1" "$subdomain"
+    fi
+done
