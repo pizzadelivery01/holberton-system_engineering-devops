@@ -16,3 +16,5 @@ do
 	print_subdomain "$1" "$each"
     fi
 done
+else
+    print_subdomain "$1" "$2"
