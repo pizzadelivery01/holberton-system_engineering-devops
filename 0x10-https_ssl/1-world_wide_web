@@ -11,7 +11,7 @@ print_subdomain()
 
 for each in "www" "lb-01" "web-01" "web-02"
 do
-    if [ -z "$2" ] || [ "$2" == "$subdomain" ];
+    if [ -z "$2" ] || [ "$2" == "$each" ];
     then
 	print_subdomain "$1" "$each"
     fi
