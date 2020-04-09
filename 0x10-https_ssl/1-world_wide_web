@@ -2,7 +2,7 @@
 # shellcheck disable=SC2086
 # shows information about subdomains on passed in information
 
-print_subdomain()
+print_subdomain ()
 {
     printf "The subdomain %s is a " "$2"
     dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf $4}'
