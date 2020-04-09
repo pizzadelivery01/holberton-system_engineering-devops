@@ -5,5 +5,5 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo sed -i '/permanent; a add_header X-Served-By $HOSTNAME;' /etc/nginx/sites_available/default
-echo "Holberton School" | sudo tee /usr/shar/nginx/html/index.html
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 sudo service nginx start
