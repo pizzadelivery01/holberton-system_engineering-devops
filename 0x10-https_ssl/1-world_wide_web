@@ -6,7 +6,10 @@ print_subdomain()
 {
     domain="$1"
     subdomain="$2"
-    dig "$subdomain.$domain" | awk ' /ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", each, $4, $5}' each="$subdomain"
+    printf "The subdomain %s is a " "$2"
+    dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | awk ' ' '{printf $4}'
+    printf " record and points to "
+    dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | awk ' ' '{printf $5}'
 }
 
 for each in "www" "lb-01" "web-01" "web-02"
