@@ -10,11 +10,14 @@ print_subdomain ()
     dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf $5}'
 }
 
-if  [ "$2" == "$each" ]; then
-    print_subdomain "$1" "$each"
-else
-    for each in "www" "lb-01" "web-01" "web-02"
-    do
-	print_subdomain "$1" each
+for each in "www" "lb-01" "web-01" "web-02"
+do
+    if  [ -Z  "$2" ]; then
+	print_subdomain "$1" "$each"
+    else
+	if [ "$2" == "$each" ]; then
+	    print_subdomain "$1" "$each"
+	fi
+    fi
 done
 	
