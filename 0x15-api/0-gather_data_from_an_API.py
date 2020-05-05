@@ -1,24 +1,21 @@
 #!/usr/bin/python3
 """
-Module for retreiving info from API
+request to get todo list and completed of employees
 """
+
 import requests
 from sys import argv
 
-if __name__ == "__main__":
-    completed = 0
-    total = 0
-    completed_titles = []
-    url = "https://jsonplaceholder.typicode.com/users/{}/".format(argv[1])
-    user = requests.get(url).json()["name"]
-    tasks = requests.get(url + "todos/").json()
-    for task in tasks:
-        if task["completed"] is True:
-            completed += 1
-            completed_titles.append(task["title"])
-        total += 1
-
-    print("Employee {} is done with tasks({}/{}):".format(user,
-                                                          completed, total))
-    for title in completed_titles:
-        print("\t {}".format(title))
+if __name__ == '__main__':
+    userId = argv[1]
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".
+                        format(userId), verify=False).json()
+    todo = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}".
+                        format(userId), verify=False).json()
+    completed_tasks = []
+    for task in todo:
+        if task.get('completed') is True:
+            completed_tasks.append(task.get('title'))
+    print("Employee {} is done with tasks({}/{}):".
+          format(user.get('name'), len(completed_tasks), len(todo)))
+    print("\n".join("\t {}".format(task) for task in completed_tasks))
