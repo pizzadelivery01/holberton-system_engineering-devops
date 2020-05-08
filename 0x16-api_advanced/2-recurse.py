@@ -23,7 +23,7 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
                           .get("children")]
 
     data = subs.json()
-    if not subs.get("data").get("after"):
+    if not data.get("data").get("after"):
         return new_hot
     return recurse(subreddit, new_hot, data.get("data").get("count"),
                    data.get("data").get("after"))
