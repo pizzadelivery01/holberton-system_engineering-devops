@@ -18,7 +18,7 @@ server {
         rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
         add_header X-Served-By $HOSTNAME;
         listen [::]:80 default_server;
-        location ~ ^/airbnb-dynamic/number_odd_or_even/([0-9]+)$ {
+        location ~ ^/airbnb-dynamic/number_odd_or_even/(/d+)$ {
                   proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
         }
         location /hbnb_static/ {
